@@ -22,3 +22,10 @@ docker run --name webserver -d -p 80:80 nginx
 docker container ls -a
 docker container stop
 docker container rm
+
+docker build https://github.com/liuhenwuji/docs.git#note/docker
+
+docker build -t ubuntu:myip -f D:\docs\note\docker\myip .
+docker build -t nginx:myweb -f D:\docs\note\docker\myweb .
+
+docker run -d --name myweb -p 81:80 nginx:myweb
