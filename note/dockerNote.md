@@ -28,4 +28,19 @@ docker build https://github.com/liuhenwuji/docs.git#note/docker
 docker build -t ubuntu:myip -f D:\docs\note\docker\myip .
 docker build -t nginx:myweb -f D:\docs\note\docker\myweb .
 
-docker run -d --name myweb -p 81:80 nginx:myweb
+docker run --name myweb -d -p 81:80 nginx:myweb
+
+# 进入容器 bash
+docker exec -it 69d1 bash
+
+# 导出导入容器
+windows:
+docker export b228a3abaf8a > d:\ubuntu.tar
+docker import d:\ubuntu.tar test/ubuntu:v1.0
+
+linux:
+docker export 7691a814370e > ubuntu.tar
+cat ubuntu.tar | docker import - test/ubuntu:v1.0
+docker import http://example.com/exampleimage.tgz example/imagerepo
+
+
