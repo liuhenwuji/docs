@@ -43,4 +43,14 @@ docker export 7691a814370e > ubuntu.tar
 cat ubuntu.tar | docker import - test/ubuntu:v1.0
 docker import http://example.com/exampleimage.tgz example/imagerepo
 
+# 删除容器
+docker container rm  trusting_newton
+docker container prune
 
+# 重命名镜像
+docker tag IMAGEID(镜像id) REPOSITORY:TAG（仓库：标签）
+
+# Machine
+docker-machine create -d virtualbox test
+window10:
+docker-machine create --driver hyperv --hyperv-virtual-switch=MY_SWITCH vm
